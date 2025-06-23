@@ -46,3 +46,13 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      # Test input variables
+      - name: Test input variables
+        env:
+          CUSTOMER_ENV: ${{ inputs.customer_env }}
+          SERVER: ${{ inputs.server }}
+        run: |
+          echo "customer_env = $CUSTOMER_ENV"
+          echo "server = $SERVER"
+ 
