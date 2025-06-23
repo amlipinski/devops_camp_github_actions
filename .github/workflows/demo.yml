@@ -20,6 +20,13 @@ on:
         required: true
         default: "dbserver1"
         type: string
+      customer_env:
+        type: choice
+        options:
+          - dev
+          - tst
+          - prd
+        default: "tst"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
