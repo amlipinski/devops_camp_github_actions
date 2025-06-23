@@ -16,6 +16,9 @@ on:
   workflow_dispatch:
     inputs:
       server:
+        description: "Enter server name"
+        required: true
+        default: "dbserver1"
         type: string
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
