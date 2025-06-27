@@ -15,5 +15,8 @@ jobs:
       - uses: actions/checkout@v4
       - run: dotnet --list-runtimes
       - run: dotnet --list-sdks
-      - run: dotnet build
+      - run: |
+            cd DemoApp
+            dotnet build
       - run: dotnet test
+        working-directory: ./DemoApp
