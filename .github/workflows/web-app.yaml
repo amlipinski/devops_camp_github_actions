@@ -1,0 +1,19 @@
+name: CI-WebApp
+
+on: 
+  push:
+    paths:
+      - "DemoApp/**"
+      - ".github/workflows/web-app.yaml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: "Build web app"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: dotnet --list-runtimes
+      - run: dotnet --list-sdks
+      - run: dotnet build
+      - run: dotnet test
