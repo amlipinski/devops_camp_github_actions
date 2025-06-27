@@ -46,6 +46,8 @@ jobs:
         run: |
           chmod 777 ./fajne_echo.sh
           ./fajne_echo.sh
+      - name: Who am I?
+        run: whoami
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
