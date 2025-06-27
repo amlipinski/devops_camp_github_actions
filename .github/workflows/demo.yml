@@ -42,7 +42,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Listing AFTER
         run: ls -LR
-      - name: Running Fajne Echo
+      - name: Running Fajne Echo!
         run: |
           chmod 777 ./fajne_echo.sh
           ./fajne_echo.sh
