@@ -5,6 +5,7 @@ on:
     paths:
       - "py-upper/**"
       - ".github/workflows/python-uppercase.yaml"
+  workflow_dispatch:
 
 jobs:
   build:
