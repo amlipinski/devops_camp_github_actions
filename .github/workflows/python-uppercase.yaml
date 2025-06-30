@@ -3,7 +3,7 @@ name: Python uppercase
 on:
   push: 
     paths:
-      - "../py-upper/**"
+      - "py-upper/**"
       - ".github/workflow/python-uppercase.yaml"
 
 jobs:
