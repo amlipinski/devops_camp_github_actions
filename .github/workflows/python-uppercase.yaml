@@ -20,6 +20,6 @@ jobs:
         with:
           python-version: '3.13'
       - name: Check python version
-        run: pyhon -V
+        run: python -V
       - name: Run tests
         run: pytest
