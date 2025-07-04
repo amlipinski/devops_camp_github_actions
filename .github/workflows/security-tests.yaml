@@ -18,4 +18,4 @@ jobs:
             - name: "list workflows"
               run: gh workflow list
               env:
-                GH_TOKEN: ${{ secrets.MY_TOKEN }}
+                GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
