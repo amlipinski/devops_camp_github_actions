@@ -1,0 +1,11 @@
+name: Test Security
+
+on:
+  workflow_dispatch:
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "show env"
+              run: env
