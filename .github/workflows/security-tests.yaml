@@ -23,4 +23,8 @@ jobs:
             #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             - name: Show Event
               run: echo "${{ toJson(github.event) }}"
-              
+            - name: Write comment THANK YOU
+              run: gh issue comment $ISSUE --body "Thank you for contacting us." --repo $REPO
+              env:
+                ISSUE: ${{ github.event.issue.number }}
+                REPO: ${{ github.event.repository.full_name }}
