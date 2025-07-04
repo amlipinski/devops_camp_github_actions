@@ -15,7 +15,7 @@ jobs:
         run: |
           echo "${{ runner.os }}"
       - name: Check python version
-        run: python -V
+        run: python3 -V
       - name: Download application code
         uses: actions/checkout@v4
       - name: Configure cache
@@ -31,7 +31,7 @@ jobs:
         with:
           python-version: '3.14.0-beta.3'
       - name: Check python version
-        run: python -V
+        run: python3 -V
       # - name: Install requirements
       #   run: pip install -r py-upper/requirements.txt
       - name: Install Python dependencies
