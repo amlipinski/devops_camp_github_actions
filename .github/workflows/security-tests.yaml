@@ -11,7 +11,11 @@ jobs:
               run: env
             - name: "status of authentication"
               run: gh auth status
+              env:
+                GH_TOKEN: ${{ secrets.MY_TOKEN }}
             - name: Checkout code
               uses: actions/checkout@v4
             - name: "list workflows"
               run: gh workflow list
+              env:
+                GH_TOKEN: ${{ secrets.MY_TOKEN }}
