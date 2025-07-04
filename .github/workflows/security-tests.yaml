@@ -2,6 +2,8 @@ name: Test Security
 
 on:
   workflow_dispatch:
+  issues:
+    types: [opened]
 
 jobs:
     test:
@@ -13,9 +15,12 @@ jobs:
               run: gh auth status
               env:
                 GH_TOKEN: ${{ secrets.MY_TOKEN }}
-            - name: Checkout code
-              uses: actions/checkout@v4
-            - name: "list workflows"
-              run: gh workflow list
-              env:
-                GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            # - name: Checkout code
+            #   uses: actions/checkout@v4
+            # - name: "list workflows"
+            #   run: gh workflow list
+            #   env:
+            #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: Show Event
+              run: echo "${{ toJson(github.event) }}"
+              
