@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-runner
+    runs-on: windows-runner
     steps:
       - name: Display variables
         run: |
