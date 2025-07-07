@@ -43,9 +43,17 @@ jobs:
         working-directory: py-upper
         
   build:
-    needs: tests
+    
     runs-on: self-hosted
+    strategy:
+      matrix:
+        python_version: ['3.12', '3.13']
+    needs: tests
     steps:
+      - name: Log python version
+        run: echo "This run is for python: ${{ matrix.python_version }}"
+      - name: hostname
+        run: hostname
       - name: Download application code
         uses: actions/checkout@v4
       - name: Configure cache
@@ -59,7 +67,7 @@ jobs:
         run: ls -lR
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.13'
+          python-version: ${{ matrix.python_version }}
       - name: Check python version
         run: python3 -V
       - name: Install Python dependencies
