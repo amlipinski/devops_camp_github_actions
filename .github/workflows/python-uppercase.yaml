@@ -88,3 +88,14 @@ jobs:
           name: "uppercase-software-${{ matrix.python_version }}"
           path: py-upper/dist/uppercase
           overwrite: true
+
+  release:
+    runs-on: self-hosted
+    needs: build
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts/
+      - name: List artifacts
+        run: ls -lR artifacts/
