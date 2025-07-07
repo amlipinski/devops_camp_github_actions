@@ -107,4 +107,4 @@ jobs:
         with:
           files: artifacts/**/*
           body: "Binaries ready for download and run (on Ubuntu)"
-          tag_name: ${ github.ref_name }
+          tag_name: ${{ github.ref_name }}
