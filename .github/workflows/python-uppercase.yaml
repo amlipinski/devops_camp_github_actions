@@ -51,7 +51,7 @@ jobs:
     needs: tests
     steps:
       - name: Log python version
-        run: echo "This run is for python: ${{ matrix.python_version }}"
+        run: echo "This run is for python ${{ matrix.python_version }}"
       - name: hostname
         run: hostname
       - name: Download application code
