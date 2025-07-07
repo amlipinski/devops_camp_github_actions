@@ -98,4 +98,10 @@ jobs:
         with:
           path: artifacts/
       - name: List artifacts
-        run: ls -lR artifacts/
+        run: ls -lR artifacts
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: artifacts/**/*
+          body: "Binaries ready for download and run (on Ubuntu)"
+          tag_name: ${ github.ref_name }
