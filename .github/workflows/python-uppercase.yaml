@@ -76,7 +76,7 @@ jobs:
           path: "py-upper/requirements.txt"
       
       - name: Compile
-        run: pyinstallerx --onefile uppercase.py
+        run: pyinstaller --onefile uppercase.py
         working-directory: py-upper 
       
       - name: List directory 2
@@ -87,3 +87,4 @@ jobs:
         with:
           name: "uppercase-software"
           path: py-upper/dist/uppercase
+          overwrite: true
