@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  tests:
     runs-on: self-hosted
     steps:
       - name: Display variables
@@ -41,4 +41,37 @@ jobs:
       - name: Run tests
         run: pytest
         working-directory: py-upper
-
+        
+  build:
+    needs: tests
+    runs-on: self-hosted
+    steps:
+      - name: Download application code
+        uses: actions/checkout@v4
+      - name: Configure cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{hashFiles('**/requirements.txt')}}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      - name: List directory 1
+        run: ls -lR
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Check python version
+        run: python3 -V
+      - name: Install Python dependencies
+        uses: py-actions/py-dependency-install@v4
+        with:
+          path: "py-upper/requirements.txt"
+      
+      - name: Install pyinstaller
+        run: pip install pyinstaller
+      - name: Compile
+        run: pyinstall --onefile uppercase.py
+        working-directory: py-upper 
+      
+      - name: List directory 1
+        run: ls -lR
