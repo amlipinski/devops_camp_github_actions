@@ -73,5 +73,10 @@ jobs:
         run: pyinstaller --onefile uppercase.py
         working-directory: py-upper 
       
-      - name: List directory 1
+      - name: List directory 2
         run: ls -lR
+      - name: Save artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: "uppercase-software"
+          path: py-upper/dist/uppercase
