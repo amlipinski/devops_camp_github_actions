@@ -85,6 +85,6 @@ jobs:
       - name: Save artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: "uppercase-software"
+          name: "uppercase-software-${{ matrix.python_version }}"
           path: py-upper/dist/uppercase
           overwrite: true
