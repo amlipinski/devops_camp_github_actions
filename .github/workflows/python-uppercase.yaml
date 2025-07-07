@@ -70,7 +70,7 @@ jobs:
       - name: Install pyinstaller
         run: pip install pyinstaller
       - name: Compile
-        run: pyinstall --onefile uppercase.py
+        run: pyinstaller --onefile uppercase.py
         working-directory: py-upper 
       
       - name: List directory 1
