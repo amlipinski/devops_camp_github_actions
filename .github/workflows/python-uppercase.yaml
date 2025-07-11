@@ -11,6 +11,8 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
+      - name: Show environment
+        run: env
       - name: Display variables
         run: |
           echo "${{ runner.os }}"
