@@ -13,7 +13,15 @@ jobs:
       Greeting: Hello
     steps:
       - name: "Say Hello Mona it's Monday"
-        run: echo "$MYGREETING $First_Name. Today is $DAY_OF_WEEK!"
+        id: var_def
+        run: |
+          echo "$MYGREETING $First_Name. Today is $DAY_OF_WEEK!"
+          echo "TODAY=PATEK" >> $GITHUB_ENV
+          echo "TOMMORROW=SOBOTA" >> $GITHUB_OUTPUT
         env:
           First_Name: Mona
           MYGREETING: ${{ vars.GREETING }}
+      - name: use var
+        run: |
+          echo "${{ env.TODAY }}}"
+          echo "{{ steps.var_def.outputs.TOMMORROW}}"
