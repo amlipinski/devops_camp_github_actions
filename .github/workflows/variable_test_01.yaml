@@ -25,3 +25,15 @@ jobs:
         run: |
           echo "${{ env.TODAY }}}"
           echo "{{ steps.var_def.outputs.TOMMORROW}}"
+
+  second_job:
+    runs-on: ubuntu-latest
+    needs: greeting_job
+    steps:
+      - name: "Display vars from previous job"
+        run: |
+          echo "TODAY: ${{ env.TODAY }}"
+          echo "TOMMORROW: ${{ needs.greeting_job.outputs.TOMMORROW }}"
+          echo "GREETING: ${{ vars.GREETING }}"
+        env:
+          GREETING: Hello
